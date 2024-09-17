@@ -1,0 +1,79 @@
+---
+import Logo from '@/components/icons/Logo.astro'
+import NavItem from '@/components/Navbar/NavItem.astro'
+import Button from '@/components/ui/Button.astro'
+
+const navItems = [
+  {
+    title: 'Services',
+    href: '/services'
+  },
+  {
+    title: 'About',
+    href: '/about'
+  },
+  {
+    title: 'Pricing',
+    href: '/pricing'
+  },
+  {
+    title: 'Blog',
+    href: '/blog'
+  },
+  {
+    title: 'Contact',
+    href: '/contact'
+  }
+]
+---
+
+<div class="bg-white py-8">
+  <div class="max-w-7xl px-6 mx-auto">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <a class="pr-10 z-10" href="/">
+          <Logo class="w-44 lg:w-52" />
+        </a>
+        <nav
+          class="bg-white absolute pt-32 md:pt-0 top-0 left-0 md:relative md:top-auto md:left-auto w-4/5 h-dvh md:h-auto md:w-auto flex items-center justify-center -translate-x-full transition-transform md:translate-x-0 text-2xl md:text-base shadow-lg shadow-black/40 md:shadow-none"
+        >
+          <ul class="flex flex-col md:flex-row justify-end items-center font-medium gap-6 md:gap-0">
+            {navItems.map((item) => <NavItem href={item.href}>{item.title}</NavItem>)}
+          </ul>
+        </nav>
+      </div>
+      <div class="felx items-center justify-end">
+        <label for="menu-toggle" class="flex flex-col justify-between w-6 h-4 cursor-pointer md:hidden z-10">
+          <input type="checkbox" id="menu-toggle" class="hidden" />
+          <div class="line top"></div>
+          <div class="line bottom"></div>
+        </label>
+        <Button href="/contact" class="hidden md:block">Get Started</Button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilo de las líneas */
+  .line {
+    @apply w-full h-[2px] bg-azure-radiance-700 transition-transform ease-linear duration-200 relative;
+  }
+
+  /* Al hacer clic (cuando el checkbox está marcado) */
+  #menu-toggle:checked + .line.top {
+    transform: rotate(45deg) translate3d(5px, 5px, 0);
+  }
+
+  #menu-toggle:checked + .line.top + .line.bottom {
+    transform: rotate(-45deg) translate3d(5px, -5px, 0);
+  }
+</style>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle')
+  const nav = document.querySelector('nav')
+  menuToggle?.addEventListener('change', () => {
+    nav?.classList.toggle('-translate-x-full')
+  })
+</script>
