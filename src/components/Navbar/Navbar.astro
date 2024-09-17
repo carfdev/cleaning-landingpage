@@ -35,11 +35,12 @@ const navItems = [
           <Logo class="w-44 lg:w-52" />
         </a>
         <nav
-          class="bg-white absolute pt-32 md:pt-0 top-0 left-0 md:relative md:top-auto md:left-auto w-4/5 h-dvh md:h-auto md:w-auto flex items-center justify-center -translate-x-full transition-transform md:translate-x-0 text-2xl md:text-base shadow-lg shadow-black/40 md:shadow-none"
+          class="bg-white absolute pt-32 p-6 md:p-0 top-0 left-0 md:relative md:top-auto md:left-auto w-4/5 h-dvh md:h-auto md:w-auto flex flex-col md:flex-row items-center justify-between -translate-x-full transition-transform md:translate-x-0 text-2xl md:text-base shadow-lg shadow-black/40 md:shadow-none"
         >
           <ul class="flex flex-col md:flex-row justify-end items-center font-medium gap-6 md:gap-0">
             {navItems.map((item) => <NavItem href={item.href}>{item.title}</NavItem>)}
           </ul>
+          <Button href="/contact" class="md:hidden w-full">Get Started</Button>
         </nav>
       </div>
       <div class="felx items-center justify-end">
