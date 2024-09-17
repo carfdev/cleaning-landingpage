@@ -1,0 +1,11 @@
+---
+interface Props {
+  href: string
+}
+
+const { href } = Astro.props
+---
+
+<li class="pr-6">
+  <a class="text-port-gore-950 hover:text-azure-radiance-700" href={href}><slot /></a>
+</li>
