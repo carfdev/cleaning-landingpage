@@ -1,0 +1,28 @@
+---
+interface Props {
+  id: string
+}
+
+const { id } = Astro.props
+---
+
+<label for={id} class="flex flex-col justify-between w-6 h-4 cursor-pointer md:hidden z-10">
+  <input type="checkbox" id={id} class="hidden" />
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+</label>
+
+<style>
+  .line {
+    @apply w-full h-[2px] bg-azure-radiance-700 transition-transform ease-linear duration-200 relative;
+  }
+
+  /* Al hacer clic (cuando el checkbox está marcado) */
+  #menu-toggle:checked + .line.top {
+    transform: rotate(45deg) translate3d(5px, 5px, 0);
+  }
+
+  #menu-toggle:checked + .line.top + .line.bottom {
+    transform: rotate(-45deg) translate3d(5px, -5px, 0);
+  }
+</style>
