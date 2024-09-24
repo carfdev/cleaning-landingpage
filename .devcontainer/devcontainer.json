@@ -15,7 +15,7 @@
   // "forwardPorts": [4321],
 
   // Uncomment the next line to run commands after the container is created.
-  // "postCreateCommand": "command",
+  "postCreateCommand": "npm install",
 
   // Configure tool-specific properties.
   "customizations": {
